@@ -1,0 +1,12 @@
+<section>
+    <article class="portada">
+
+        {{#if profilePic}}
+        <img id="profilePic" src="{{profilePic}}" alt="">
+        {{else}}
+        <img id="profilePic" alt="">
+        {{/if}}
+        <h2>{{username}}</h2>
+    </article>
+    {{#if message}}<h1>{{message}}</h1>{{/if}}
+</section>

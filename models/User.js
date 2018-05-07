@@ -20,7 +20,6 @@ const userSchema = new Schema({
     type:Number,
     default:0
   },
-  //confirmationCode: String,
   email: {
     type:String,
     required:true

@@ -24,11 +24,6 @@ const userSchema = new Schema({
     type:String,
     required:true
   },
-  status: {
-    type: String,
-    enum: ["Pending Confirmation", "Active"],
-    default: "Pending Confirmation"
-  },
   products:[{
     type:Schema.Types.ObjectId,
     ref:"Product"

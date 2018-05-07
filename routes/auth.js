@@ -19,7 +19,7 @@ function isNotAuth(req,res,next){
     return res.redirect('/login');
 }
 
-router.get('/profile', isNotAuth, (req,res, next)=>{
+router.get('/profile', isNotAuth, (req, res, next)=>{
     User.findById(req.user._id)
     .populate('products')
     .then(user=>{
@@ -33,8 +33,8 @@ router.post('/profile', uploads.single('profilePic'), (req,res, next)=>{
     req.body.profilePic = '/uploads/' + req.file.filename;
     User.findByIdAndUpdate(req.user._id, req.body)
     .then(()=>{
-        req.user.message = "Actualizado";
         res.render('auth/profile', req.user);
+        req.user.message = "Actualizado";
     })
     .catch(e=>next(e));
 });

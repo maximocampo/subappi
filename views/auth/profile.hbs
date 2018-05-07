@@ -4,9 +4,33 @@
         {{#if profilePic}}
         <img id="profilePic" src="{{profilePic}}" alt="">
         {{else}}
-        <img id="profilePic" alt="">
+        <img id="profilePic" src="https://pbs.twimg.com/profile_images/719587633353986048/U6ub_oiK_400x400.jpg">
         {{/if}}
         <h2>{{username}}</h2>
     </article>
     {{#if message}}<h1>{{message}}</h1>{{/if}}
+    <form action="/profile" method="post" enctype="multipart/form-data">
+            <input id="file" type="file" name="profilePic"/>
+            <input type="submit" value="Guardar">
+    </form>
+    <h1>nuevo producto</h1>
+    <form action="/products/new" method="post" enctype="multipart/form-data">
+            <input type="text" placeholder="Nombre de tu producto" name="name" />
+            <br>
+            <input name="price" type="number" placeholder="el precio"/>
+            <br>
+            <label>Descripcion:</label>
+            <textarea name="description" cols="30" rows="5"></textarea>
+            <br>
+            <label>tiempo de la subasta</label>
+            <input name="time" type="number"/>
+            <br>
+            <label>Sube hasta 6 imagenes</label>
+            <input name="photos" type="file" multiple />
+            <br>
+            <label>etiquetas</label>
+            <input name="tags" type="string"/>
+            <input type="submit">
+            
+        </form>
 </section>

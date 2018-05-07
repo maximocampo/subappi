@@ -58,11 +58,13 @@ router.get('/signup', (req,res)=>{
     res.render('auth/signup',{error:req.body.error});
 });
 
+
+
 router.post('/signup', 
     (req,res)=>{
         User.register(req.body, req.body.password, (err, user) =>{
             if (err) return res.send(err);
-            console.log("si funco")
+            console.log(req.body)
             const authenticate = User.authenticate();
             authenticate(req.body.email, req.body.password, function(err, result) {
                 console.log("aqui ando");

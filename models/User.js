@@ -7,6 +7,7 @@ const userSchema = new Schema({
     type:String,
     required:true
   },
+  bio: String,
   profilePic:String,
   password: {
     type:String,

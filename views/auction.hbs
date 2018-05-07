@@ -1,3 +1,23 @@
-<button id="push">
-  Push
-</button>
+<section id='auction-upper'>
+<div>
+  <h1>{{name}}</h1>
+  {{#each image}}
+    <img src="{{this}}" alt="">
+  {{/each}}
+</div> 
+<div>
+<h2>${{price}}</h2>
+<button id="push">PUSH</button>
+<p>Lider:{{lider}}</p>
+</div>
+</section>
+
+<section id='auction-down'>
+  <div>
+    <p>Description: {{description}}</p>
+    <h3>Comments</h3>
+  </div>
+  <div>
+    <h1>productos relacionados</h1>
+  </div>
+</section>

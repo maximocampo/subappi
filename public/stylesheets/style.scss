@@ -6,3 +6,39 @@ body {
 a {
   color: #00B7FF;
 }
+
+//auction hbs
+#auction-upper{
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0 5% 0
+}
+
+#auction-upper div{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#auction-down div{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#auction-upper img{
+  display: flex;
+  justify-content: space-around;
+  width:25%
+}
+
+#auction-down{
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0 5% 0
+}
+//auction hbs

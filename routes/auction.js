@@ -4,9 +4,12 @@ const User = require('../models/User');
 const upload = require('multer')({dest: './public/pics'});
 
 
-router.get('/:id', (req,res,next)=>{
-    Product.findById(req.body.params)
-    .then(product=>res.render('auction', {product}))
+router.get('/:_id', (req,res,next)=>{
+    Product.findById(req.params)
+    .then(product=>{
+        console.log(product)
+        res.render('auction', product)
+    })
     .catch(e=>next(e));
 });
 

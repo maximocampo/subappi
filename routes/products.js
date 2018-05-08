@@ -69,13 +69,14 @@ router.get('/', (req,res,next)=>{
     .catch(e=>next(e));
 });
 
-router.post('/new', upload.array('photos',6),(req,res, next)=>{
-    req.body.photos = [];
+router.post('/new', upload.array('image',6),(req,res, next)=>{
+    req.body.image = [];
     for(let pic of req.files){
-        req.body.photos.push('/pics/' + pic.filename);
+        req.body.image.push('/pics/' + pic.filename);
     }
     req.body.user = req.user._id;
     req.body.owner =  req.user._id;
+    req.body.currentPrice = 0;
     Product.create(req.body)
     .then(product=>{
         console.log(product);

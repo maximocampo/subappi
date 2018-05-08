@@ -9,10 +9,6 @@ const userSchema = new Schema({
   },
   bio: String,
   profilePic:String,
-  password: {
-    type:String,
-    required:true
-  },
   rating: {
     type: Number,
     default:1

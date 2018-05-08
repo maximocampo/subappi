@@ -36,10 +36,10 @@
 							<h1>Las mejores<br> subastas del<br> mercado</h1>
 							<p>Lorem ipsum dolor sit amet, consectetuer <br> adipiscing elit, sed diam nonum</p>
 						</div>
-						<div class="col-md-4 col-xs-12 signup">
+						<div id="signup-div" class="col-md-4 col-xs-12 signup">
 							<h3>Regístrate</h3>
 							<span>o <a href="#">inicia sesión en tu cuenta</a></span>
-							<form id="form-Signup" action="/signup" class="form-group">
+							<form id="form-Signup" action="/signup" class="form-group" method="POST">
 								<input type="text" class="form-control" placeholder="Nombre" name='name'>
 								<input type="text" class="form-control" placeholder="Apellído" name='lastName'>
 								<input type="text" class="form-control" placeholder="Email" name='email'>
@@ -50,12 +50,12 @@
 								<input type="submit" value="Enviar" class="btn btn-primary btn-card">
 							</form>
 						</div>
-						<div class="col-md-4 col-xs-12 login">
+						<div id="login-div" class="col-md-4 col-xs-12 hidden">
 							<h3>Inicia sesión</h3>
 							<span>o <a href="#">regístrate</a></span>
-							<form id="form-login" action="/login" class="form-group">
-								<input type="text" class="form-control" placeholder="Email">
-								<input type="password" class="form-control" placeholder="Contraseña">
+							<form id="form-login" action="/login" class="form-group" method="POST">
+								<input type="email" class="form-control" placeholder="Email" name="email">
+								<input type="password" class="form-control" placeholder="Contraseña" name="password">
 								<input type="submit" value="Entrar" class="btn btn-primary btn-card">
 							</form>
 						</div>

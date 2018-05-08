@@ -41,22 +41,15 @@ router.post('/profile', uploads.single('profilePic'), (req,res, next)=>{
 
 router.get('/logout', (req,res)=>{
     req.logout();
-    res.redirect('/login');
+    res.redirect('/');
 })
 
-router.get('/login', isAuthenticated,(req,res)=>{
-    res.render('auth/login', {error:req.body.error});
-})
 
-router.post('/login', 
-    passport.authenticate('local'), 
-    (req,res)=>{
-        res.redirect('/profile');
-    })
+router.post('/login', passport.authenticate('local',{
+    successRedirect: '/profile'
+}))
 
-// router.get('/signup', (req,res)=>{
-//     res.render('auth/signup',{error:req.body.error});
-// });
+
 
 
 
@@ -65,12 +58,9 @@ router.post('/signup',
         User.register(req.body, req.body.password, (err, user) =>{
             if (err) return res.send(err);
             console.log(req.body)
-            const authenticate = User.authenticate();
-            authenticate(req.body.email, req.body.password, function(err, result) {
-                console.log("aqui ando");
-                if (err) return res.send(err);
-                return res.redirect('/profile');
-            })
+            passport.authenticate('local')(req,res,function(){
+                res.redirect('/profile');
+            });
         })
 
     });

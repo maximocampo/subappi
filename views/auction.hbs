@@ -8,11 +8,13 @@
   {{/each}}
 </div> 
 <div>
-<h2 id="cero">${{currentPrice}}</h2>
+<h2 id="price">{{currentPrice}}</h2>
 <button id="push">PUSH</button>
 <p>Lider:{{lider}}</p>
 </div>
 </section>
+
+<input id="pujaValue" value="{{puja}}" type="text" hidden>
 
 <section id='auction-down'>
   <div>
@@ -23,3 +25,34 @@
     <h1>productos relacionados</h1>
   </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+
+<script>
+
+  var socket = io.connect('http://localhost:3000');
+
+
+socket.on('update', function(datos){
+  console.log(typeof datos.newPrice);
+  document.getElementById('price').innerHTML = datos.newPrice;
+});
+
+
+  document.getElementById("push").addEventListener("click", ()=>{
+
+    let productId = document.getElementById("product-id").innerHTML;
+    let price = document.getElementById('price').innerHTML;
+    let pujaValue = document.getElementById('pujaValue').value;
+    //console.log(productId,price, pujaValue);
+    // let currentvalueproduct = 0
+    // let currentpujavalue = 0
+    // let suma = 0;
+    
+    console.log("emitiendo");
+    socket.emit('puja', {productId,pujaValue,price});
+    document.getElementById('price').innerHTML = parseInt(price); + parseInt(pujaValue);
+  
+  });
+
+</script>

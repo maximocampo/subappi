@@ -50,9 +50,6 @@ router.post('/login', passport.authenticate('local',{
 }))
 
 
-
-
-
 router.post('/signup', 
     (req,res)=>{
         User.register(req.body, req.body.password, (err, user) =>{

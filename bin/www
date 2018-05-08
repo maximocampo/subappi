@@ -21,6 +21,10 @@ app.use((err, req, res, next) => {
 
 let server = http.createServer(app);
 
+var io     = app.io
+io.attach( server );
+
+
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
 

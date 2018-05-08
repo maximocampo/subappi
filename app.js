@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport     = require("./helpers/passport");
 const session      = require("express-session");
+const moduleStream = require('mongoose-model-stream');
 
 
 mongoose.Promise = Promise;
@@ -25,6 +26,21 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+var socket_io    = require( "socket.io" );
+
+// Socket.io
+var io           = socket_io();
+app.io           = io;
+
+// socket.io events
+io.on( "connection", function( socket ){
+
+  socket.on('puja', function(d){
+    console.log(d);
+    socket.emit('m',d)
+  });
+
+});
 
 //session
 app.use(session({

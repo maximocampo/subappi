@@ -1,3 +1,9 @@
+var socket = io.connect('http://localhost:3000');
+
+socket.on('listo', function(d){
+  console.log(d);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
 console.log('IronGenerator JS imported successfully!');
@@ -11,6 +17,10 @@ console.log('IronGenerator JS imported successfully!');
     let currentpujavalue = 0
     let suma = 0;
     
+   
+
+  
+
 
     fetch(`/api/${id}`)
       .then(res => {
@@ -22,7 +32,6 @@ console.log('IronGenerator JS imported successfully!');
         currentvalueproduct = product.currentPrice
         currentpujavalue = product.puja
         suma = currentvalueproduct + currentpujavalue;
-        console.log()
         return  fetch(`/api/${id}`,{
           method:"PATCH",
           body: JSON.stringify({currentPrice:suma}),
@@ -33,16 +42,17 @@ console.log('IronGenerator JS imported successfully!');
       })
       .then(res => {
         if(!res.ok) return console.log(res);
-        //console.log(res)
+
         return res.json();
       })
       .then(product => {
-        console.log(product.currentPrice); 
-        document.getElementById('cero').innerHTML = product.currentPrice;
+        socket.emit('puja', product.currentPrice);
       })
   })
 
-
+socket.on('m',function(d){
+  document.getElementById('cero').innerHTML = d;
+})
 
 
 

@@ -3,6 +3,8 @@ const Product = require('../models/Product');
 const User = require('../models/User');
 
 
+
+
 router.get('/:id', (req,res,next)=>{
   console.log(req.params.id)
     Product.findById(req.params.id)
@@ -11,6 +13,8 @@ router.get('/:id', (req,res,next)=>{
     })
     .catch(e=>next(e));
 });
+
+
 
 router.patch('/:id', (req,res,next)=>{
   console.log(req.params.id)

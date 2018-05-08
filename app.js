@@ -41,7 +41,7 @@ io.on( "connection", function( socket ){
     console.log(typeof newPrice);
     Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice}, {new:true})
     .then(p=>{
-      socket.emit('update',{newPrice:p.currentPrice});
+      socket.broadcast.emit('update',{newPrice:p.currentPrice});
     })
     .catch(e=>console.log(e))
     

@@ -20,8 +20,8 @@
 
 				<div class="menu">
 					<ul>
-						<li class="color"><a href="#">Iniciar sesión</a></li>
-						<li class="color"><a href="#" class="hidden">Regístrate</a></li>
+						<li class="color"><a href="#" id="a-iniciarSesion">Iniciar sesión</a></li>
+						<li class="color"><a href="#" class="hidden" id="a-registrate">Regístrate</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -39,7 +39,7 @@
 						<div class="col-md-4 col-xs-12 signup">
 							<h3>Regístrate</h3>
 							<span>o <a href="#">inicia sesión en tu cuenta</a></span>
-							<form action="/signup" class="form-group">
+							<form id="form-Signup" action="/signup" class="form-group">
 								<input type="text" class="form-control" placeholder="Nombre" name='name'>
 								<input type="text" class="form-control" placeholder="Apellído" name='lastName'>
 								<input type="text" class="form-control" placeholder="Email" name='email'>
@@ -53,7 +53,7 @@
 						<div class="col-md-4 col-xs-12 login">
 							<h3>Inicia sesión</h3>
 							<span>o <a href="#">regístrate</a></span>
-							<form action="" class="form-group">
+							<form id="form-login" action="/login" class="form-group">
 								<input type="text" class="form-control" placeholder="Email">
 								<input type="password" class="form-control" placeholder="Contraseña">
 								<input type="submit" value="Entrar" class="btn btn-primary btn-card">
@@ -274,5 +274,6 @@
 		<p>Todos los derechos reservados ©SUBAPPI 2018</p>
 	</footer>
 
+	  <script src='/javascripts/script-index.js'></script>
 
 	

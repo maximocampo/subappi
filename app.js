@@ -14,7 +14,7 @@ const session      = require("express-session");
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/subastas', {useMongoClient: true})
+  .connect(process.env.DATABASE)
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {

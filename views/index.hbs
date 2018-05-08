@@ -1,2 +1,291 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<header>
+		
+		<div class="container">
+			
+			<div class="background"></div>
+			<nav class="nav">
+				<div class="logo">
+					<h2>SUBAPPI</h2>
+				</div>
+
+				<div class="menu-info">
+					<ul>
+						<li><a href="#">¿Cómo funciona?</a></li>
+						<li><a href="#">Conócenos</a></li>
+					</ul>
+				</div>
+
+				<div class="menu">
+					<ul>
+						<li class="color"><a href="#">Iniciar sesión</a></li>
+						<li class="color"><a href="#" class="hidden">Regístrate</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			
+			<div class="banner">
+				
+				<div class="container">
+					
+					<div class="row">
+						<div class="col-md-8 col-xs-12">
+							<h1>Las mejores<br> subastas del<br> mercado</h1>
+							<p>Lorem ipsum dolor sit amet, consectetuer <br> adipiscing elit, sed diam nonum</p>
+						</div>
+						<div class="col-md-4 col-xs-12 signup">
+							<h3>Regístrate</h3>
+							<span>o <a href="#">inicia sesión en tu cuenta</a></span>
+							<form action="/signup" class="form-group">
+								<input type="text" class="form-control" placeholder="Nombre" name='name'>
+								<input type="text" class="form-control" placeholder="Apellído" name='lastName'>
+								<input type="text" class="form-control" placeholder="Email" name='email'>
+								<input type="password" class="form-control" placeholder="Contraseña" name='password'>
+								<input type="password" class="form-control" placeholder="Repita su contraseña" name='password2'>
+								<input type="checkbox" class="form-check-input-lg">
+								<span>Acepto las <a href="#">Condiciones de SUBAPPI</a></span>
+								<input type="submit" value="Enviar" class="btn btn-primary btn-card">
+							</form>
+						</div>
+						<div class="col-md-4 col-xs-12 login">
+							<h3>Inicia sesión</h3>
+							<span>o <a href="#">regístrate</a></span>
+							<form action="" class="form-group">
+								<input type="text" class="form-control" placeholder="Email">
+								<input type="password" class="form-control" placeholder="Contraseña">
+								<input type="submit" value="Entrar" class="btn btn-primary btn-card">
+							</form>
+						</div>
+					</div>
+				
+				</div>
+
+			</div>
+
+		</div>
+
+	</header>
+
+	<section class="subastas">
+		
+		<div class="container">
+
+			<div class="row title">
+				<div class="col-xs-12 text-center">
+					<h2>A la 1, a las 2, a las 3... ¡Vendido!</h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/lap.jpg" alt="Lap">
+					  <div class="card-body">
+					    <h4 class="timer">0:00:00:09</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">johnnyphocker</h4>
+					    	<p>$351.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/car.jpg" alt="car">
+					  <div class="card-body">
+					    <h4 class="timer">0:00:01:46</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">hackberto</h4>
+					    	<p>$4897.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/ipod.jpg" alt="ipod">
+					  <div class="card-body">
+					    <h4 class="timer">0:04:52:07</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">frank-the-tank</h4>
+					    	<p>$136.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/samsung.jpg" alt="Samsung">
+					  <div class="card-body">
+					    <h4 class="timer">0:05:12:04</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">onene</h4>
+					    	<p>$37.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/bag.jpg" alt="bag">
+					  <div class="card-body">
+					    <h4 class="timer green">0:16:48:23</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">alinatrix</h4>
+					    	<p>$8.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					
+					<div class="card">
+					  <img class="card-img-top" src="./images/tennis.jpg" alt="tennis">
+					  <div class="card-body">
+					    <h4 class="timer green">1:05:09:12</h4>
+					    <div class="card-lider">
+					    	<h4 class="card-title">maximoto</h4>
+					    	<p>$2.00</p>
+					    </div>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					  </div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<section class="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6 col-xs-12">
+					<h3>¡OFERTA Y GANA!</h3>
+					<p>La mejor manera de ofrecer y adquirir productos online.</p>
+				</div>
+				<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+					<a href="#" class="btn btn-primary btnCta btn-card">Saber más</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="info">
+		
+		<div class="container">
+			
+			<div class="row title">
+				<div class="col-xs-12 text-center">
+					<h2>Estás a punto de llevar las subastas al siguiente nivel. </h2>
+				</div>
+			</div>
+
+			<div class="row bases">
+				
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<img src="./images/rocket.svg" alt="rocket">
+					<h3>CREA TU CUENTA</h3>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<img src="./images/money.svg" alt="money">
+					<h3>CONSIGUE CRÉDITOS</h3>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<img src="./images/juega.svg" alt="juega">
+					<h3>JUEGA</h3>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum</p>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+					<img src="./images/premio.svg" alt="premio">
+					<h3>RECLAMA TU PREMIO</h3>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum</p>
+				</div>
+
+			</div>
+
+			<div class="row title">
+				<div class="col-xs-12 center">
+					<h2>¡así de sencillo!</h2>
+					<p>Ahora sólo faltas tú. Sé el mejor postor.</p>
+					<a href="#" class="btn btn-primary btnCta btn-card">Le quiero entrar</a>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<footer>
+		<p>Todos los derechos reservados ©SUBAPPI 2018</p>
+	</footer>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+</body>

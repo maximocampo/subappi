@@ -54,14 +54,9 @@ router.post('/login',
         res.redirect('/profile');
     })
 
-router.get('/logout', (req,res)=>{
-    req.logOut();
-    res.redirect('/login');
-});
-
-router.get('/signup', (req,res)=>{
-    res.render('auth/signup',{error:req.body.error});
-});
+// router.get('/signup', (req,res)=>{
+//     res.render('auth/signup',{error:req.body.error});
+// });
 
 
 

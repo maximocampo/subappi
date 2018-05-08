@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://subappi.herokuapp.com');
 
 socket.on('listo', function(d){
   console.log(d);

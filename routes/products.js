@@ -76,6 +76,7 @@ router.post('/new', upload.array('image',6),(req,res, next)=>{
     }
     req.body.user = req.user._id;
     req.body.owner =  req.user._id;
+    req.body.currentPrice = 0;
     Product.create(req.body)
     .then(product=>{
         console.log(product);

@@ -54,9 +54,9 @@ router.post('/login',
         res.redirect('/profile');
     })
 
-router.get('/signup', (req,res)=>{
-    res.render('auth/signup',{error:req.body.error});
-});
+// router.get('/signup', (req,res)=>{
+//     res.render('auth/signup',{error:req.body.error});
+// });
 
 
 

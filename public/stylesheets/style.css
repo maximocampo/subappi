@@ -1,9 +1,254 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+@font-face {
+  font-family: bebas;
+  src: url(../fonts/BebasNeue_0.otf); }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 10px; }
+
+ul {
+  list-style: none; }
 
 a {
-  color: #00B7FF; }
+  text-decoration: none; }
+
+header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1ab7b3, #345191);
+  position: relative; }
+
+.background {
+  width: 40%;
+  height: 100vh;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  right: 0; }
+
+nav {
+  height: 6rem;
+  border-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5rem;
+  margin: 0 auto; }
+
+.logo {
+  flex-grow: 1; }
+
+.menu-info {
+  flex-grow: 20; }
+
+.menu {
+  flex-grow: 1;
+  z-index: 999; }
+
+nav .logo h2 {
+  font-family: bebas;
+  padding: 1rem;
+  font-size: 6.5rem;
+  color: white; }
+
+nav .menu-info ul li, nav .menu ul li {
+  display: inline;
+  color: white;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  margin-left: 1.5rem; }
+
+nav .menu-info ul li a {
+  color: white; }
+
+li.color a {
+  color: #4d4d4d !important; }
+
+header .banner {
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center; }
+
+header .banner h1 {
+  font-family: bebas;
+  font-size: 8.7rem;
+  color: white;
+  line-height: 8rem; }
+
+header .banner p {
+  color: white;
+  font-size: 2.4rem;
+  line-height: normal;
+  font-weight: 100; }
+
+header .banner .signup {
+  background-color: white; }
+
+header input[type='text'], header input[type='password'], header input[type='checkbox'] {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.4rem; }
+
+.banner .signup span {
+  color: #5b5b5f;
+  font-size: 1.4rem;
+  margin-top: 1.3rem; }
+
+.subastas {
+  width: 100%;
+  padding-bottom: 8rem; }
+
+.title {
+  padding: 8rem 0 6rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.title h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 5.1rem; }
+
+.card .timer {
+  color: #f41c06;
+  text-align: center;
+  font-family: bebas;
+  font-size: 5rem; }
+
+.card .green {
+  color: #1b8c23; }
+
+.card .card-text {
+  text-align: center;
+  padding: 1rem 0 2rem 0; }
+
+.card .card-title {
+  margin: 1rem 0 2rem 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.card {
+  border: 1px solid #345191;
+  margin-top: 1.5rem; }
+
+.card img {
+  border-bottom: 1px solid #345191;
+  border-top: 10px solid #345191; }
+
+.btn-card {
+  background-color: #345191;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  border: none; }
+
+.form-group .btn-card {
+  margin-top: 1.5rem; }
+
+.card-lider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.card-lider p {
+  font-family: bebas;
+  font-size: 3rem;
+  color: #f41c06; }
+
+.login {
+  display: none; }
+
+.hidden {
+  display: none; }
+
+.cta {
+  background-color: rgba(0, 113, 188, 0.1);
+  height: 32rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.cta h3 {
+  font-family: bebas;
+  font-weight: bold;
+  color: #d4145a;
+  font-size: 8rem; }
+
+.cta p {
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.btnCta {
+  background-color: #2e6caf;
+  padding: 3rem 4rem;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 300;
+  display: block;
+  text-align: center;
+  margin-top: 2rem; }
+
+.btnCta:hover {
+  color: white;
+  text-decoration: none; }
+
+.info h3 {
+  font-size: 3rem;
+  color: #2e6caf;
+  text-align: center;
+  font-family: bebas; }
+
+.info p {
+  font-size: 1.4rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.info img {
+  display: block;
+  width: 30%;
+  margin: 0 auto 2rem auto; }
+
+.info .bases {
+  margin: 0 0 6rem 0; }
+
+.info .sencillo {
+  display: block; }
+
+.info .center h2 {
+  text-align: center;
+  font-family: bebas;
+  color: #0071bc;
+  font-size: 8rem; }
+
+.info .center p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 2.8rem; }
+
+footer {
+  margin-top: 8rem;
+  height: 8rem;
+  color: white;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+footer p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 1.4rem; }
 
 #auction-upper {
   display: flex;

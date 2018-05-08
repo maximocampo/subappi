@@ -26,18 +26,25 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
-var socket_io    = require( "socket.io" );
 
+var socket_io    = require( "socket.io" );
 // Socket.io
 var io           = socket_io();
 app.io           = io;
-
+const Product = require('./models/Product');
 // socket.io events
 io.on( "connection", function( socket ){
 
-  socket.on('puja', function(d){
-    console.log(d);
-    socket.emit('m',d)
+  socket.on('puja', function(datos){
+    console.log('recibi price', datos);
+    const newPrice = Number(datos.price) + Number(datos.pujaValue);
+    console.log(typeof newPrice);
+    Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice}, {new:true})
+    .then(p=>{
+      socket.emit('update',{newPrice:p.currentPrice});
+    })
+    .catch(e=>console.log(e))
+    
   });
 
 });

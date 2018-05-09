@@ -98,9 +98,6 @@ header input[type='text'], header input[type='password'], header input[type='che
   font-size: 1.4rem;
   margin-top: 1.3rem; }
 
-#login-div {
-  padding: 0px 0 240px 0; }
-
 .subastas {
   width: 100%;
   padding-bottom: 8rem; }
@@ -253,33 +250,237 @@ footer p {
   font-weight: 100;
   font-size: 1.4rem; }
 
-#auction-upper {
+.btn-menu {
+  padding: 1.2rem 1.8rem;
+  background-color: #0071bc;
+  font-size: 1.8rem;
+  font-weight: 100; }
+
+header.portada-usuario {
+  width: 100%;
+  height: 40rem;
+  background: linear-gradient(135deg, #74479b, #ff4d4d);
+  /*background: #b8d3e6;*/ }
+
+.tabs {
+  position: absolute;
+  bottom: -0.1rem;
+  font-size: 1.8rem; }
+
+.tabs ul li a {
+  padding: 1rem 4rem;
+  margin: 0 0.5rem;
+  color: white; }
+
+.tabs ul li a:hover {
+  padding: 1rem 4rem;
+  margin: 0 0.5rem;
+  background-color: #2e6caf; }
+
+.tabs .nav-link {
+  background-color: #345191; }
+
+.profilePic img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin-top: 7.5rem; }
+
+.profilePic h2 {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  font-size: 2.8rem;
+  margin-top: 9.5rem; }
+
+.profilePic p {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  font-size: 1.8rem; }
+
+.usuario .profilePic a {
+  font-family: 'Roboto', sans-serif;
+  text-align: left !important;
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 1rem 2.5rem; }
+
+.perfil {
+  font-size: 1.8rem;
+  padding: 8rem 0; }
+
+.perfil p {
+  line-height: 1.8rem; }
+
+.perfil-aside span {
+  font-size: 1.4rem;
+  color: #aaa; }
+
+.level span {
+  font-size: 1.4rem;
+  color: #aaa;
+  line-height: 1rem; }
+
+.card.level {
+  padding: 2rem;
+  border: 1px solid #eee; }
+
+.alerta {
+  margin-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300; }
+
+.fas {
+  color: #ffce00; }
+
+.fas.rating-low {
+  color: #eee; }
+
+.subasta-finalizada {
+  color: #ccc !important; }
+
+.card.mis-productos {
+  border: 1px solid #eee;
   display: flex;
   justify-content: space-around;
-  margin: 5% 0 5% 0; }
+  align-items: center;
+  margin-bottom: 2rem; }
 
-#auction-upper div {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+.card-body {
+  width: 100% !important; }
 
-#auction-down div {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+.mis-productos h3 {
+  font-weight: 300; }
 
-#auction-upper img {
-  display: flex;
-  justify-content: space-around;
-  width: 25%; }
+.modal input[type="text"], .modal input[type="number"], .modal textarea, input[type="time"] {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  color: #555; }
 
-#auction-down {
+input[type="time"] {
+  height: 50px !important; }
+
+select.form-control {
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: #555;
+  padding: 1rem; }
+
+select.form-control:not([size]):not([multiple]) {
+  height: 50px; }
+
+.modal button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 0.8rem 2rem; }
+
+.form-control-file {
+  font-size: 1.8rem;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+li.color a.white {
+  color: white !important;
+  margin-left: 2rem; }
+
+.color.white a {
+  color: white !important; }
+
+.color.white a.auction-menu {
+  color: white !important; }
+
+h2.color-logo {
+  color: #345191 !important; }
+
+header.auction {
+  background: white;
+  height: 100%; }
+
+.galeria, .tabla-lider {
+  margin-top: 8rem; }
+
+.galeria .card, .tabla-lider .card {
+  border: 1px solid #ddd; }
+
+.galeria .card img, .tabla-lider .card img {
+  border: none; }
+
+.carousel-control-prev:hover {
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.5); }
+
+.carousel-control-next:hover {
+  right: 0;
+  background-color: rgba(1, 1, 1, 0.5); }
+
+.lider {
   display: flex;
-  justify-content: space-around;
-  margin: 5% 0 5% 0; }
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem 0; }
+
+.card-info-subasta {
+  margin-top: 1rem; }
+
+.card-info-subasta .nav-link {
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.card-info-subasta {
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif; }
+
+.card-info-subasta table thead tr th {
+  border-top: none; }
+
+.card-info-subasta .table-active {
+  background-color: #345191;
+  color: white; }
+
+.card-info-subasta .tab-pane {
+  margin-top: 3rem;
+  font-weight: 300; }
+
+.heart {
+  font-size: 2.4rem;
+  cursor: pointer; }
+
+.unfollowing {
+  color: gray; }
+
+.following {
+  color: red; }
+
+.heart i {
+  font-size: 2.4rem; }
+
+.tooltip {
+  font-size: 1.2rem; }
+
+.form-comments input[type="text"] {
+  height: 5rem;
+  font-size: 1.4rem; }
+
+.card.form-comments, .card.comments {
+  border: none; }
+
+.form-comments label {
+  font-size: 1.3rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.comments h4 {
+  font-family: 'Roboto', sans-serif; }
+
+.comments p {
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
 
 /*# sourceMappingURL=style.css.map */

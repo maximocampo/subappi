@@ -15,8 +15,9 @@ router.get('api/:_id', (req,res,next)=>{
 
 router.get('/:_id', (req,res,next)=>{
     Product.findById(req.params)
+    .populate('lider')
     .then(product=>{
-        res.render('auction', product)
+        res.render('auction', {product,user:req.user})
     })
     .catch(e=>next(e));
 });

@@ -16,8 +16,18 @@ function isNotAuth(req,res,next){
     if(req.isAuthenticated()){
         return next();
     }
-    return res.redirect('/login');
+    return res.redirect('/');
 }
+
+function homeAuth(req,res,next){
+    if(req.isAuthenticated()){
+        return res.send('homeauth')
+    }
+    return res.render('index')
+}
+
+router.get('/', homeAuth, (req, res, next) => {});
+  
 
 router.get('/profile', isNotAuth, (req, res, next)=>{
     User.findById(req.user._id)

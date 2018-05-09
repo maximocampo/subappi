@@ -30,7 +30,7 @@
 
 <script>
 
-  var socket = io.connect();
+var socket = io.connect('http://subappi.herokuapp.com');
 
 
 socket.on('update', function(datos){
@@ -44,9 +44,14 @@ socket.on('update', function(datos){
     let productId = document.getElementById("product-id").innerHTML;
     let price = document.getElementById('price').innerHTML;
     let pujaValue = document.getElementById('pujaValue').value;
-    document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
+    //console.log(productId,price, pujaValue);
+    // let currentvalueproduct = 0
+    // let currentpujavalue = 0
+    // let suma = 0;
+    
     console.log("emitiendo");
     socket.emit('puja', {productId,pujaValue,price});
+    document.getElementById('price').innerHTML = parseInt(price); + parseInt(pujaValue);
   
   });
 

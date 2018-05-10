@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "cloudinary": "^1.11.0",
     "cookie-parser": "~1.4.3",
     "dotenv": "^4.0.0",
     "express": "~4.16.0",
@@ -18,6 +19,7 @@
     "mongoose-model-stream": "^2.2.0",
     "morgan": "~1.9.0",
     "multer": "^1.3.0",
+    "multer-storage-cloudinary": "^2.2.1",
     "node-sass-middleware": "0.11.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

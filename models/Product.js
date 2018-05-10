@@ -10,10 +10,10 @@ const productSchema = new Schema({
   image:[String],
   tags: [String],
   owner: Schema.Types.ObjectId,
-  lider:[{
+  lider:{
     type:Schema.Types.ObjectId,
     ref: "User"
-  }],
+  },
   status:[{
     type: String,
     enum: ["Vendido", "Vendiendo"],

@@ -11,6 +11,11 @@ const path         = require('path');
 const passport     = require("./helpers/passport");
 const session      = require("express-session");
 const moduleStream = require('mongoose-model-stream');
+const Product = require('./models/Product');
+const User = require('./models/User');
+
+
+
 
 
 mongoose.Promise = Promise;
@@ -31,22 +36,45 @@ var socket_io    = require( "socket.io" );
 // Socket.io
 var io           = socket_io();
 app.io           = io;
-const Product = require('./models/Product');
+
+//HELPERS
+hbs.registerHelper('checkOwner', (user, product,options)=>{
+  if(user._id === product.owner) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 // socket.io events
+
+
 io.on( "connection", function( socket ){
-
-  socket.on('puja', function(datos){
-    console.log('recibi price', datos);
+  
+  socket.on('puja', async function(datos){
     const newPrice = Number(datos.price) + Number(datos.pujaValue);
-    console.log(typeof newPrice);
-    Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice}, {new:true})
-    .then(p=>{
-      socket.broadcast.emit('update',{newPrice:p.currentPrice});
-    })
-    .catch(e=>console.log(e))
+    const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider}, {new:true});
+    var theuser;
+    User.findById(p.owner)
+      .then(user=>{
+        let new_credits = Number(user.creditos) + Number(datos.pujaValue);
+        User.findByIdAndUpdate(user._id, {$set:{creditos:new_credits}}, {new:true}).then(user=>{})
+      })
     
-  });
+    User.findById(p.lider)
+      .then(user=>{
+        let new_credits = Number(user.creditos) - Number(datos.pujaValue);
+        User.findByIdAndUpdate(user._id, {$set: {creditos: new_credits }}, {new:true}).then(user=>{})
+        theuser = user
+      })
+      console.log(theuser)
+      socket.broadcast.emit('update',{
+        p,
+        u:theuser
+      })
 
+
+
+  });
 });
 
 //session

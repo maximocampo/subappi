@@ -4,7 +4,7 @@
 			
 			<nav class="nav">
 				<div class="logo">
-					<h2>SUBAPPI</h2>
+					<h2 id="profilePic">SUBAPPI</h2>
 				</div>
 
 				<div class="menu-info">
@@ -18,6 +18,7 @@
 					<ul>
 						<li class="color white"><a href="/">Inicio</a></li>
 						<li class="color white"><a href="/profile">Perfil</a></li>
+						<li class="color white"><a href="/logout">Salir</a></li>
 						<li class="color"><a href="#" class="btn btn-primary btn-menu white">Compra créditos</a></li>
 					</ul>
 				</div>
@@ -29,9 +30,9 @@
 					<div class="profilePic">
 
 				{{#if profilePic}}
-        <img id="profilePic" src="{{profilePic}}" alt="Tu foto">
+        <img  src="{{profilePic}}" alt="Tu foto">
         {{else}}
-        <img id="profilePic" src="./images/user.svg" alt="">
+        <img  src="./images/user.svg" alt="Actualiza tu foto">
         {{/if}}
 
 						
@@ -61,12 +62,12 @@
                                 <br>
                                 <input value="{{user.lastName}}" type="text" placeholder="Apellido" name="lastName" class="form-control">			
                                 <br>
-                                <input value="{{user.email}}" type="email" placeholder="Email" name="email" class="form-control">
+                                <input style="height:50px; font-size: 18px" value="{{user.email}}" type="email" placeholder="Email" name="email" class="form-control">
                                 <textarea rows="3" placeholder="Acerca de ti" name="bio" class="form-control">{{user.bio}}</textarea>
-                                <input type="number" placeholder="Número telefónico" class="form-control">
+                                <input type="number" name="phoneNumber" placeholder="Número telefónico" class="form-control">
                                 <br>
                                 <br>
-                                <h2>Cambia tu foto de perfil<input id="file" type="file" class="form-control-file" name="profilePic" multiple></h2>
+                                <h2>Cambia tu foto de perfil<input type="file" class="form-control-file" name="profilePic" multiple></h2>
 																<input type="submit" class="btn btn-primary modal-footer" value="Guardar cambios">
                     </form>      
                                 
@@ -119,7 +120,7 @@
 								<span>Email:</span>
 								<p>{{email}}</p>
 								<span>Celular:</span>
-								<p>6673363918</p>
+								<p>{{phoneNumber}}</p>
 								<span>Bio:</span>
 								<p>{{bio}}</p>
 
@@ -220,7 +221,7 @@
 																		<option value="electronica" selected>Electrónica</option>
 																		<option value="moda">Moda</option>
 																	</select>
-																<input type="number" name="time" class="form-control">
+																<input type="number" name="time" class="form-control" min="6" max="48" placeholder="¿Cuantas horas durará tu subasta?">
 																<input type="number" name="puja" placeholder="Valor de la puja" class="form-control">
 																<textarea rows="3" name="description" placeholder="Descripción del producto" class="form-control"></textarea>
 																<br>
@@ -234,30 +235,6 @@
 											</div>
 										</div>
 
-
-											{{!-- <h1>Ingresa un nuevo producto</h1>
-    
-    		<form action="/products/new" method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Nombre de tu producto" name="name" />
-            <br>
-            <input name="puja" type="number" placeholder="Valor de puja"/>
-            <br>
-            <label>Descripcion:</label>
-            <textarea name="description" cols="30" rows="5"></textarea>
-            <br>
-            <label>tiempo de la subasta</label>
-            <input name="time" type="number"/>
-            <br>
-            <label>Sube hasta 6 imagenes</label>
-            <input name="image" type="file" multiple />
-            <br>
-            <label>etiquetas</label>
-            <input name="tags" type="string"/>
-            <input type="submit">
-            
-        </form> --}}
-
-
 							    	</div>
 						  		</div>
 
@@ -265,19 +242,26 @@
 						</div>
 						{{!-- aqui comienza la vista de los productos subastados del usuario --}}
 						<div class="row">
-							
+
+
+							{{#each products}}
+							<input class="timeofprod" value="{{this.time}}" type="text" hidden>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
-
-								{{#each products}}
-								
-							
-
-								
 								<div class="card">
-								  <img class="card-img-top" src="./{{this.image.[0]}}" alt="Lap">
+								  <img class="card-img-top" src="{{this.image.[0]}}" alt="Lap">
 								  <div class="card-body">
-								    <h4 class="timer subasta-finalizada">Oferta finalizada</h4>
+										<div id="clockdiv">
+              				<h4 class="timer">
+                				<span class='days'></span>
+                				:
+                				<span class='hours'></span>
+                				:
+                				<span class='minutes'></span>
+                				:
+                				<span class='seconds'></span>
+               				</h4>
+          			  	</div>
 								    <div class="card-lider">
 								    	<h4 class="card-title">{{this.lider.[0]}}</h4>
 								    	<p>${{this.currentPrice}}.00</p>
@@ -285,53 +269,13 @@
 								    <p class="card-text">
 								      {{this.description}}
 								    </p>
-								    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+								    <a href="/auction/{{this._id}}" class="btn btn-primary btn-card">ver oferta</a>
 								  </div>
 								</div>
 
-									{{/each}}
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 								
-								<div class="card">
-								  <img class="card-img-top" src="./images/tennis.jpg" alt="No salen los productos del usuario">
-								  <div class="card-body">
-								    <h4 class="timer">0:00:01:46</h4>
-								    <div class="card-lider">
-								    	<h4 class="card-title">hackberto</h4>
-								    	<p>$4897.00</p>
-								    </div>
-								    <p class="card-text">
-								      Some quick example text to build on the card title
-								      and make up the bulk of the card's content.
-								    </p>
-								    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-								  </div>
-								</div>
-
 							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-								
-								<div class="card">
-								  <img class="card-img-top" src="./images/car.jpg" alt="car">
-								  <div class="card-body">
-								    <h4 class="timer">0:00:01:46</h4>
-								    <div class="card-lider">
-								    	<h4 class="card-title">hackberto</h4>
-								    	<p>$4897.00</p>
-								    </div>
-								    <p class="card-text">
-								      Some quick example text to build on the card title
-								      and make up the bulk of the card's content.
-								    </p>
-								    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-								  </div>
-								</div>
-
-							</div>
-							
+								{{/each}}
 
 						</div>
 
@@ -438,7 +382,7 @@
 
 
 
-	
+	<a class="hidden"  id="file" href="/"></a>
 
 	
 
@@ -446,73 +390,11 @@
 		<p>Todos los derechos reservados ©SUBAPPI 2018</p>
 	</footer>
 
+<script src="./javascripts/script-profile.js"></script>
+
 	<script>
     document.querySelector('#profilePic')
         .addEventListener('click', ()=>{
             document.querySelector('#file').click();
         })
 	</script>
-
-{{!-- <section>
-    <article class="portada">
-
-        {{#if profilePic}}
-        <img id="profilePic" src="{{profilePic}}" alt="">
-        {{else}}
-        <img id="profilePic" src="https://pbs.twimg.com/profile_images/719587633353986048/U6ub_oiK_400x400.jpg">
-        {{/if}}
-        <h2>{{username}}</h2>
-    </article>
-    {{#if message}}<h1>{{message}}</h1>{{/if}}
-    <form action="/profile" method="post" enctype="multipart/form-data">
-            <label>Actualiza tu foto de perfil.</label><input id="file" type="file" name="profilePic"/>
-            <label>Biografía:</label>  
-            <textarea>{{bio}}</textarea>
-            <br>
-            <label>Rating:</label> 
-            <p>{{rating}} Stars</p>
-            <br>
-            <p>Contacto: </p>{{email}}</p>
-            <br>
-            <p>Créditos: {{creditos}}</p>
-            <input type="submit" value="Guardar">
-    </form>
-        <br>
-        <br>
-</section>
-<hr>
-<section>
-    <h1>Mis productos:</h1>
-    {{#each products}}
-    <div>
-        <h3>Nombre del Producto</h3><h5>{{name}}</h5>
-        <h5>Foto del producto: </h5> <img src="{{image.[0]}}" alt="Foto del producto">
-        <h4>Tiempo restante: {{time}}</h4>
-        <p>{{description}}</p>
-    </div>
-    {{/each}}
-</section>
-<hr>
-<section>
-    <h1>Ingresa un nuevo producto</h1>
-    
-    <form action="/products/new" method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Nombre de tu producto" name="name" />
-            <br>
-            <input name="puja" type="number" placeholder="Valor de puja"/>
-            <br>
-            <label>Descripcion:</label>
-            <textarea name="description" cols="30" rows="5"></textarea>
-            <br>
-            <label>tiempo de la subasta</label>
-            <input name="time" type="number"/>
-            <br>
-            <label>Sube hasta 6 imagenes</label>
-            <input name="image" type="file" multiple />
-            <br>
-            <label>etiquetas</label>
-            <input name="tags" type="string"/>
-            <input type="submit">
-            
-        </form>
-</section> --}}

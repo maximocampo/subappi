@@ -252,7 +252,7 @@ footer p {
 
 .btn-menu {
   padding: 1.2rem 1.8rem;
-  color: #0071bc;
+  background-color: #0071bc;
   font-size: 1.8rem;
   font-weight: 100; }
 
@@ -390,7 +390,97 @@ li.color a.white {
 .color.white a {
   color: white !important; }
 
-.prueba {
-  margin-left: 50%; }
+.color.white a.auction-menu {
+  color: white !important; }
+
+h2.color-logo {
+  color: #345191 !important; }
+
+header.auction {
+  background: white;
+  height: 100%; }
+
+.galeria, .tabla-lider {
+  margin-top: 8rem; }
+
+.galeria .card, .tabla-lider .card {
+  border: 1px solid #ddd; }
+
+.galeria .card img, .tabla-lider .card img {
+  border: none; }
+
+.carousel-control-prev:hover {
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.5); }
+
+.carousel-control-next:hover {
+  right: 0;
+  background-color: rgba(1, 1, 1, 0.5); }
+
+.lider {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem 0; }
+
+.card-info-subasta {
+  margin-top: 1rem; }
+
+.card-info-subasta .nav-link {
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.card-info-subasta {
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif; }
+
+.card-info-subasta table thead tr th {
+  border-top: none; }
+
+.card-info-subasta .table-active {
+  background-color: #345191;
+  color: white; }
+
+.card-info-subasta .tab-pane {
+  margin-top: 3rem;
+  font-weight: 300; }
+
+.heart {
+  font-size: 2.4rem;
+  cursor: pointer; }
+
+.unfollowing {
+  color: gray; }
+
+.following {
+  color: red; }
+
+.heart i {
+  font-size: 2.4rem; }
+
+.tooltip {
+  font-size: 1.2rem; }
+
+.form-comments input[type="text"] {
+  height: 5rem;
+  font-size: 1.4rem; }
+
+.card.form-comments, .card.comments {
+  border: none; }
+
+.form-comments label {
+  font-size: 1.3rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.comments h4 {
+  font-family: 'Roboto', sans-serif; }
+
+.comments p {
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
 
 /*# sourceMappingURL=style.css.map */

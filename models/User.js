@@ -11,6 +11,7 @@ const userSchema = new Schema({
     type:String,
     required:true
   },
+  phoneNumber:Number,
   bio: String,
   profilePic:String,
   rating: {

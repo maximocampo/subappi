@@ -26,12 +26,18 @@ function isNotAuth(req,res,next){
 
 function homeAuth(req,res,next){
     if(req.isAuthenticated()){
-        return res.render('auth/index-auth')
+        Product.find().then(product=>{
+            return res.render('auth/index-auth', {product})
+        }) 
+    }else{
+        Product.find().then(product=>{
+            return res.render('index', {product})
+        })
     }
-    return res.render('index')
+        
 }
 
-router.get('/', homeAuth, (req, res, next) => {});
+router.get('/', homeAuth);
 
 // 
 

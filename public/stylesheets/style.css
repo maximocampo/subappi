@@ -483,4 +483,47 @@ header.auction {
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
 
+.credito {
+  pointer-events: none; }
+
+.credito a {
+  font-family: bebas;
+  font-size: 2.8rem; }
+
+.red {
+  color: red; }
+
+.whiteBg {
+  background: white;
+  height: auto; }
+
+.logo h2.logoGrad {
+  background: linear-gradient(to right, #f2de95, #dc47a7, #386382, #44457e);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text; }
+
+.cta-auth {
+  margin-top: 8rem;
+  background: url("http://res.cloudinary.com/otnielitowsky/image/upload/v1525967579/banner-subastas.jpg");
+  background-size: cover;
+  color: white; }
+
+.cta-auth h2 {
+  padding: 6rem 3rem;
+  font-family: bebas;
+  font-size: 6.8rem;
+  line-height: 6.4rem; }
+
+.info .center p {
+  line-height: normal;
+  margin: 2rem 0 4rem 0; }
+
+.media img {
+  width: 50px;
+  border-top: none; }
+
+.media p {
+  font-size: 1.4rem; }
+
 /*# sourceMappingURL=style.css.map */

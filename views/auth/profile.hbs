@@ -32,7 +32,7 @@
 				{{#if profilePic}}
         <img  src="{{profilePic}}" alt="Tu foto">
         {{else}}
-        <img  src="./images/user.svg" alt="Actualiza tu foto">
+        <img  src="http://res.cloudinary.com/otnielitowsky/image/upload/v1525967952/user.png" alt="Actualiza tu foto">
         {{/if}}
 
 						
@@ -58,12 +58,12 @@
 							</div>
 							<div class="modal-body">
 						        <form  action="/profile" method="POST" class="form-group" enctype="multipart/form-data">
-                                <input value="{{user.name}}" type="text" placeholder="Nombre" name="name" class="form-control">			
+                                <input value="{{name}}" type="text" placeholder="Nombre" name="name" class="form-control">			
                                 <br>
-                                <input value="{{user.lastName}}" type="text" placeholder="Apellido" name="lastName" class="form-control">			
+                                <input value="{{lastName}}" type="text" placeholder="Apellido" name="lastName" class="form-control">			
                                 <br>
-                                <input style="height:50px; font-size: 18px" value="{{user.email}}" type="email" placeholder="Email" name="email" class="form-control">
-                                <textarea rows="3" placeholder="Acerca de ti" name="bio" class="form-control">{{user.bio}}</textarea>
+                                <input style="height:50px; font-size: 18px" value="{{email}}" type="email" placeholder="Email" name="email" class="form-control" disabled>
+                                <textarea rows="3" placeholder="Acerca de ti" name="bio" class="form-control">{{bio}}</textarea>
                                 <input type="number" name="phoneNumber" placeholder="Número telefónico" class="form-control">
                                 <br>
                                 <br>

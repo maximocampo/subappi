@@ -38,6 +38,12 @@ var io           = socket_io();
 app.io           = io;
 
 //HELPERS
+hbs.registerHelper('checkOwner', (user, product,options)=>{
+  if(user._id === product.owner) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 // socket.io events
 
@@ -47,10 +53,9 @@ io.on( "connection", function( socket ){
   socket.on('puja', async function(datos){
     const newPrice = Number(datos.price) + Number(datos.pujaValue);
     const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider}, {new:true});
-
+    var theuser;
     User.findById(p.owner)
       .then(user=>{
-        console.log(user)
         let new_credits = Number(user.creditos) + Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set:{creditos:new_credits}}, {new:true}).then(user=>{})
       })
@@ -59,9 +64,13 @@ io.on( "connection", function( socket ){
       .then(user=>{
         let new_credits = Number(user.creditos) - Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set: {creditos: new_credits }}, {new:true}).then(user=>{})
+        theuser = user
       })
-
-      socket.broadcast.emit('update',p)
+      console.log(theuser)
+      socket.broadcast.emit('update',{
+        p,
+        u:theuser
+      })
 
 
 

@@ -18,6 +18,7 @@
 					<ul>
 						<li class="color"><a href="/">Inicio</a></li>
 						<li class="color"><a href="/profile">Perfil</a></li>
+            <li class="color credito"><a href="#">$<span id='tuscreditos'>{{user.creditos}}</span></a></li>
 						<li class="color"><a href="#" class="btn btn-primary btn-menu white">Compra créditos</a></li>
 					</ul>
 				</div>
@@ -77,15 +78,28 @@
 						<a href="#" data-toggle="tooltip" data-placement="top" title="Seguir esta puja" class="heart">
 							<i class="fa fa-heart unfollowing" aria-hidden="true"></i>
 						</a>
-						<h4 class="timer">0:00:00:{{product.time}}</h4>
+            <div id="clockdiv">
+              <h4 class="timer">
+                <span class='days'></span>
+                :
+                <span class='hours'></span>
+                :
+                <span class='minutes'></span>
+                :
+                <span class='seconds'></span>
+               </h4>
+            </div>
+						
 				  		<div class="card-lider">
 					    	<h4 class="card-title" id='lider'>{{product.lider.name}} {{product.lider.lastName}}</h4>
 					    	<p>$<span id="price">{{product.currentPrice}}</span></p>
 					    </div>
-						
-				  		<a class="btn btn-primary btn-card" id="push">Pujar</a>
-				    
-				  	</div>
+						  {{#checkOwner user product}}
+                  <a class="btn btn-primary btn-card">Tu eres el vendedor</a>
+                {{else}}
+				  		    <a class="btn btn-primary btn-card" id="push">Pujar</a>
+				        {{/checkOwner}}
+				  	  </div>
 				</div>
 
 				<div class="card-info-subasta">
@@ -219,15 +233,16 @@
 
 
 
-
+<input id="timeofprod" value="{{product.time}}" type="text" hidden>
 <input id="pujaValue" value="{{product.puja}}" type="text" hidden>
 <input id="product-id" value="{{product._id}}" type="text" hidden>
 <input id="newlider" value="{{user._id}}" type="text" hidden>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+
+<script src='/javascripts/script-auction.js'></script>
+
 <script>
 		$(function(){
 		  	$('[data-toggle="tooltip"]').tooltip();
@@ -239,33 +254,8 @@
 			});
 		});
 
-	</script>
-
-<script>
-var socket = io.connect();
-
-
-socket.on('update', function(datos){
-  console.log(datos);
-  document.getElementById('price').innerHTML = datos.newPrice;
-  document.getElementById('lider').innerHTML = datos.newlider;
-});
-
-
-  document.getElementById("push").addEventListener("click", ()=>{
-
-    let productId = document.getElementById("product-id").value;
-    let price = document.getElementById('price').innerHTML;
-    let pujaValue = document.getElementById('pujaValue').value;
-    let newlider = document.getElementById('newlider').value;
-    document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
-    document.getElementById('lider').innerHTML = newlider
-    
-    socket.emit('puja', {
-      productId,
-      pujaValue,
-      price,
-      newlider});
-  });
-
 </script>
+
+
+
+

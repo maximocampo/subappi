@@ -77,6 +77,7 @@ router.post('/new', upload.array('image',6),(req,res, next)=>{
     req.body.user = req.user._id;
     req.body.owner =  req.user._id;
     req.body.currentPrice = 0;
+    req.body.time = Date.now() + Number(req.body.time) * 3600000
     Product.create(req.body)
     .then(product=>{
         console.log(product);

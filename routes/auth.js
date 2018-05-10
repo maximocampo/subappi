@@ -4,6 +4,24 @@ const User = require("../models/User");
 const multer = require("multer");
 const upload = multer({dest: './public/uploads'});
 const Product = require("../models/Product");
+const uploadCloud = require("../helpers/cloudinary");
+
+
+router.post('/profile', uploadCloud.single('profilePic'), (req,res, next)=>{
+
+
+    req.body.profilePic = req.file.url;
+    //console.log(req.body);
+    User.findByIdAndUpdate(req.user._id, req.body)
+    .populate('products')
+    .then((body)=>{
+        //console.log(body);
+        res.redirect('/profile');
+        //user.message = "Actualizado";
+    })
+    .catch(e=>next(e));
+});
+
 
 function isAuthenticated(req,res, next){
     if(req.isAuthenticated()){
@@ -39,17 +57,6 @@ router.get('/profile', isNotAuth, (req, res, next)=>{
     
 })
 
-router.post('/profile', upload.single('profilePic'), (req,res, next)=>{
-    req.body.profilePic = '/uploads/' + req.file.filename;
-    User.findByIdAndUpdate(req.user._id, req.body)
-    .populate('products')
-    .then((body)=>{
-        res.redirect('/profile');
-    })
-    .catch(e=>next(e));
-});
-
-
 router.get('/logout', (req,res)=>{
     req.logout();
     res.redirect('/');
@@ -74,4 +81,4 @@ router.post('/signup',
     });
 
 
-    module.exports = router;
+module.exports = router

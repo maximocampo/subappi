@@ -7,20 +7,7 @@ const Product = require("../models/Product");
 const uploadCloud = require("../helpers/cloudinary");
 
 
-router.post('/profile', uploadCloud.single('profilePic'), (req,res, next)=>{
 
-
-    req.body.profilePic = req.file.url;
-    //console.log(req.body);
-    User.findByIdAndUpdate(req.user._id, req.body)
-    .populate('products')
-    .then((body)=>{
-        //console.log(body);
-        res.redirect('/profile');
-        //user.message = "Actualizado";
-    })
-    .catch(e=>next(e));
-});
 
 
 function isAuthenticated(req,res, next){
@@ -45,7 +32,8 @@ function homeAuth(req,res,next){
 }
 
 router.get('/', homeAuth, (req, res, next) => {});
-  
+
+// 
 
 router.get('/profile', isNotAuth, (req, res, next)=>{
     User.findById(req.user._id)
@@ -56,6 +44,21 @@ router.get('/profile', isNotAuth, (req, res, next)=>{
     .catch(e=>next(e))
     
 })
+
+router.post('/profile', uploadCloud.single('profilePic'), (req,res, next)=>{
+
+
+    req.body.profilePic = req.file.url;
+    //console.log(req.body);
+    User.findByIdAndUpdate(req.user._id, req.body)
+    .populate('products')
+    .then((body)=>{
+        //console.log(body);
+        res.redirect('/profile');
+        //user.message = "Actualizado";
+    })
+    .catch(e=>next(e));
+});
 
 router.get('/logout', (req,res)=>{
     req.logout();

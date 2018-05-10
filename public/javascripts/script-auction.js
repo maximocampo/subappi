@@ -51,12 +51,6 @@ initializeClock('clockdiv', deadline);
 var socket = io.connect();
 
 
-socket.on('update', function(datos){
-console.log(datos);
-document.getElementById('price').innerHTML = datos.p.newPrice;
-document.getElementById('lider').innerHTML = datos.p.newlider;
-});
-
 
 document.getElementById("push").addEventListener("click", ()=>{
 if(
@@ -96,6 +90,12 @@ socket.emit('follow',{
 alert('Ahora sigues este producto');
 
 })
+
+
+socket.on('update', function(p){
+  document.getElementById('price').innerHTML = p.currentPrice
+  });
+  
 
 
 

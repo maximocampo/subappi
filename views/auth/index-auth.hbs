@@ -17,10 +17,10 @@
 
 				<div class="menu">
 					<ul>
-						<li class="color"><a href="#">Inicio</a></li>
-						<li class="color"><a href="#">Perfil</a></li>
+						<li class="color"><a href="/logout">Salir</a></li>
+						<li class="color"><a href="/profile">Perfil</a></li>
 						<li class="color credito"><a href="#">$500</a></li>
-						<li class="color"><a href="#" class="btn btn-primary btn-menu white">Compra créditos</a></li>
+						<li class="color"><a href="/buycredits" class="btn btn-primary btn-menu white">Compra créditos</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -49,7 +49,6 @@
 			<div class="row" style="display: flex;align-items: center;margin:3rem 0;">
 				
 				<div class="col-lg-5 col-md-6 col-xs-12"><h3>Busque una subasta y dé la mejor puja</h3></div>
-
 				<div class="col-lg-7 col-md-6 col-xs-12">
 					
 					<form action="get">
@@ -72,128 +71,44 @@
 			
 			<div class="row">
 				
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-					
-					<div class="card">
-					  <img class="card-img-top" src="img/lap.jpg" alt="Lap">
+				{{#each product}}
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 productcard">
+				
+					<div class="card card-inicio">
+					  {{#if this.image.[0]}}
+								  <img class="card-img-top" src="{{this.image.[0]}}" alt="Tu producto">
+									{{else }}
+									<img class="card-img-top" src="http://res.cloudinary.com/otnielitowsky/image/upload/v1525969636/foto-no-disponible.jpg" alt="Pon una foto de tu producto">
+									{{/if}}
 					  <div class="card-body">
-					    <h4 class="timer">0:00:00:09</h4>
+							<div class="clockdiv">
+											<input class="timeofprod" value="{{time}}" type="text" hidden>
+              				<h4 class="timer">
+                				<span class='days'></span>
+                				:
+                				<span class='hours'></span>
+                				:
+                				<span class='minutes'></span>
+                				:
+                				<span class='seconds'></span>
+               				</h4>
+          			  	</div>
 					    <div class="card-lider">
-					    	<h4 class="card-title">johnnyphocker</h4>
-					    	<p>$351.00</p>
+					    	<h4 class="card-title">{{lider}}</h4>
+					    	<p>{{price}}</p>
 					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
+					    <div style='height:10rem;overflow:hidden;margin-bottom:4rem'>
+											<h3>{{this.name}}</h3>
+											<p class="card-text">
+								      {{this.description}}
+								    	</p>
+										</div>
+					    <a href="/auction/{{_id}}" class="btn btn-primary btn-card">ver oferta</a>
 					  </div>
 					</div>
-
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 					
-					<div class="card">
-					  <img class="card-img-top" src="img/car.jpg" alt="car">
-					  <div class="card-body">
-					    <h4 class="timer">0:00:01:46</h4>
-					    <div class="card-lider">
-					    	<h4 class="card-title">hackberto</h4>
-					    	<p>$4897.00</p>
-					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-					  </div>
-					</div>
-
 				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-					
-					<div class="card">
-					  <img class="card-img-top" src="img/ipod.jpg" alt="ipod">
-					  <div class="card-body">
-					    <h4 class="timer">0:04:52:07</h4>
-					    <div class="card-lider">
-					    	<h4 class="card-title">frank-the-tank</h4>
-					    	<p>$136.00</p>
-					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-					  </div>
-					</div>
-
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-					
-					<div class="card">
-					  <img class="card-img-top" src="img/samsung.jpg" alt="Samsung">
-					  <div class="card-body">
-					    <h4 class="timer">0:05:12:04</h4>
-					    <div class="card-lider">
-					    	<h4 class="card-title">onene</h4>
-					    	<p>$37.00</p>
-					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-					  </div>
-					</div>
-
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-					
-					<div class="card">
-					  <img class="card-img-top" src="img/bag.jpg" alt="bag">
-					  <div class="card-body">
-					    <h4 class="timer green">0:16:48:23</h4>
-					    <div class="card-lider">
-					    	<h4 class="card-title">alinatrix</h4>
-					    	<p>$8.00</p>
-					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-					  </div>
-					</div>
-
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-					
-					<div class="card">
-					  <img class="card-img-top" src="img/tennis.jpg" alt="tennis">
-					  <div class="card-body">
-					    <h4 class="timer green">1:05:09:12</h4>
-					    <div class="card-lider">
-					    	<h4 class="card-title">maximoto</h4>
-					    	<p>$2.00</p>
-					    </div>
-					    <p class="card-text">
-					      Some quick example text to build on the card title
-					      and make up the bulk of the card's content.
-					    </p>
-					    <a href="#!" class="btn btn-primary btn-card">ver oferta</a>
-					  </div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
+				{{/each}}
 
 	</section>
 
@@ -266,3 +181,4 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
+<script src="/javascripts/script-index-auth.js"></script>

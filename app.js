@@ -53,28 +53,30 @@ io.on( "connection", function( socket ){
   socket.on('puja', async function(datos){
     const newPrice = Number(datos.price) + Number(datos.pujaValue);
     const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider}, {new:true});
-    var theuser;
     User.findById(p.owner)
       .then(user=>{
         let new_credits = Number(user.creditos) + Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set:{creditos:new_credits}}, {new:true}).then(user=>{})
       })
-    
+
     User.findById(p.lider)
       .then(user=>{
         let new_credits = Number(user.creditos) - Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set: {creditos: new_credits }}, {new:true}).then(user=>{})
-        theuser = user
       })
-      console.log(theuser)
-      socket.broadcast.emit('update',{
-        p,
-        u:theuser
+      .then(u=>{
+        socket.emit('update',{p,u})
       })
 
-
+      
 
   });
+
+  socket.on('follow', function(datos) {
+    User.findByIdAndUpdate(datos.userId,{$push:{following:datos.productId}}, {new:true})
+    .then(u=>console.log(u))
+  });
+
 });
 
 //session

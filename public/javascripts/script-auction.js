@@ -82,4 +82,25 @@ document.getElementById("push").addEventListener("click", ()=>{
         price,
         newlider});
     }});
+
+document.getElementById('heartBtn').addEventListener('click',function() {
+
+  let productId = document.getElementById("product-id").value;
+  let userId = document.getElementById('newlider').value;
+
+  socket.emit('follow',{
+    productId,
+    userId
+  })
+
+  alert('Ahora sigues este producto');
+
+})
+
+
+
+
+
+
+
   

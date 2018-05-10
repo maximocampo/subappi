@@ -135,9 +135,17 @@ header input[type='text'], header input[type='password'], header input[type='che
   border: 1px solid #345191;
   margin-top: 1.5rem; }
 
+.card-inicio img {
+  height: 200px !important; }
+
 .card img {
   border-bottom: 1px solid #345191;
-  border-top: 10px solid #345191; }
+  border-top: 10px solid #345191;
+  height: 300px; }
+
+.card-auction img {
+  height: 450px;
+  width: auto; }
 
 .btn-card {
   background-color: #345191;
@@ -201,6 +209,10 @@ header input[type='text'], header input[type='password'], header input[type='che
   color: white;
   text-decoration: none; }
 
+.info {
+  background: rgba(0, 113, 188, 0.05);
+  padding-bottom: 8rem; }
+
 .info h3 {
   font-size: 3rem;
   color: #2e6caf;
@@ -236,7 +248,6 @@ header input[type='text'], header input[type='password'], header input[type='che
   font-size: 2.8rem; }
 
 footer {
-  margin-top: 8rem;
   height: 8rem;
   color: white;
   background-color: black;
@@ -482,5 +493,48 @@ header.auction {
   font-size: 1.4rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
+
+.credito {
+  pointer-events: none; }
+
+.credito a {
+  font-family: bebas;
+  font-size: 2.8rem; }
+
+.red {
+  color: red; }
+
+.whiteBg {
+  background: white;
+  height: auto; }
+
+.logo h2.logoGrad {
+  background: linear-gradient(to right, #f2de95, #dc47a7, #386382, #44457e);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text; }
+
+.cta-auth {
+  margin-top: 8rem;
+  background: url("http://res.cloudinary.com/otnielitowsky/image/upload/v1525967579/banner-subastas.jpg");
+  background-size: cover;
+  color: white; }
+
+.cta-auth h2 {
+  padding: 6rem 3rem;
+  font-family: bebas;
+  font-size: 6.8rem;
+  line-height: 6.4rem; }
+
+.info .center p {
+  line-height: normal;
+  margin: 2rem 0 4rem 0; }
+
+.media img {
+  width: 50px;
+  border-top: none; }
+
+.media p {
+  font-size: 1.4rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -71,10 +71,13 @@ io.on( "connection", function( socket ){
         p,
         u:theuser
       })
-
-
-
   });
+
+  socket.on('follow', function(datos) {
+    User.findByIdAndUpdate(datos.userId,{$push:{following:datos.productId}}, {new:true})
+    .then(u=>console.log(u))
+  });
+
 });
 
 //session

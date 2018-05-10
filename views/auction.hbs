@@ -34,7 +34,7 @@
 			
 			<div class="col-lg-7 col-md-6 col-xs-12 galeria">
 
-				<div class="card">
+				<div class="card card-auction">
 				  	<div class="card-body">
 
 				  		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
@@ -75,7 +75,7 @@
 
 				<div class="card">
 				  	<div class="card-body">
-						<a href="#" data-toggle="tooltip" data-placement="top" title="Seguir esta puja" class="heart">
+						<a href="#" data-toggle="tooltip" data-placement="top" id="heartBtn" title="Seguir esta puja" class="heart">
 							<i class="fa fa-heart unfollowing" aria-hidden="true"></i>
 						</a>
             <div id="clockdiv">
@@ -251,6 +251,10 @@
 		$(document).ready(function() {
 			$('.heart i').click(function() {
 				$('.heart i').toggleClass('following');
+
+
+
+
 			});
 		});
 

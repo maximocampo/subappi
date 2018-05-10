@@ -63,10 +63,9 @@ io.on( "connection", function( socket ){
       .then(user=>{
         let new_credits = Number(user.creditos) - Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set: {creditos: new_credits }}, {new:true}).then(user=>{})
+        socket.broadcast.emit('update',{p,user})
       })
-      .then(u=>{
-        socket.emit('update',{p,u})
-      })
+      
 
       
 

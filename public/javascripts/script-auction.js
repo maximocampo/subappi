@@ -95,8 +95,8 @@ alert('Ahora sigues este producto');
 
 socket.on('update', function(datos){
   document.getElementById('price').innerHTML = datos.p.currentPrice
-  document.getElementById('lider').innerHTML = datos.u.name
-  console.log(datos.u.name)
+  document.getElementById('lider').innerHTML = datos.user.name
+  console.log(datos.user)
   });
   
 

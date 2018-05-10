@@ -51,9 +51,6 @@ hbs.registerHelper('checkOwner', (user, product,options)=>{
 io.on( "connection", function( socket ){
   
   socket.on('puja', async function(datos){
-    console.log('llego')
-
-
     const newPrice = Number(datos.price) + Number(datos.pujaValue);
     const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider}, {new:true});
     User.findById(p.owner)
@@ -61,14 +58,17 @@ io.on( "connection", function( socket ){
         let new_credits = Number(user.creditos) + Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set:{creditos:new_credits}}, {new:true}).then(user=>{})
       })
-    
+
     User.findById(p.lider)
       .then(user=>{
         let new_credits = Number(user.creditos) - Number(datos.pujaValue);
         User.findByIdAndUpdate(user._id, {$set: {creditos: new_credits }}, {new:true}).then(user=>{})
       })
+      .then(u=>{
+        socket.broadcast.emit('update',{p,u})
+      })
 
-      socket.emit('update',p)
+      
 
   });
 

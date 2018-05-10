@@ -37,6 +37,10 @@ function homeAuth(req,res,next){
         
 }
 
+router.get("/credits", (req,res)=>{
+        res.render("../views/credits");
+})
+
 router.get('/', homeAuth);
 
 // 

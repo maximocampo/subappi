@@ -66,10 +66,11 @@ if(
     let price = document.getElementById('price').innerHTML;
     let pujaValue = document.getElementById('pujaValue').value;
     let newlider = document.getElementById('newlider').value;
+    let newlidername = document.getElementById('newlidername').value;
+    let newliderlastname = document.getElementById('newliderlastname').value;
     document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
-    document.getElementById('lider').innerHTML = newlider
     document.getElementById('tuscreditos').innerHTML = Number(document.getElementById('tuscreditos').innerHTML) - Number(document.getElementById('pujaValue').value)
-    
+    document.getElementById('lider').innerHTML = newlidername + ' ' + newliderlastname
     socket.emit('puja', {
       productId,
       pujaValue,
@@ -92,8 +93,10 @@ alert('Ahora sigues este producto');
 })
 
 
-socket.on('update', function(p){
-  document.getElementById('price').innerHTML = p.currentPrice
+socket.on('update', function(datos){
+  document.getElementById('price').innerHTML = datos.p.currentPrice
+  document.getElementById('lider').innerHTML = datos.u.name
+  console.log(datos.u.name)
   });
   
 

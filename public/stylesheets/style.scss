@@ -163,9 +163,20 @@ header input[type='text'], header input[type='password'], header input[type='che
  margin-top: 1.5rem;
 }
 
+.card-inicio img{
+	height: 200px !important;
+}
+
 .card img {
  border-bottom: 1px solid #345191;
- border-top: 10px solid #345191
+ border-top: 10px solid #345191;
+ height: 300px;
+
+}
+
+.card-auction img {
+	height: 450px;
+	width: auto;
 }
 
 .btn-card {
@@ -241,6 +252,11 @@ header input[type='text'], header input[type='password'], header input[type='che
  text-decoration: none;
 }
 
+.info {
+	background: rgba(0, 113, 188, 0.05);
+	padding-bottom: 8rem;;
+}
+
 .info h3 {
  font-size: 3rem;
  color: #2e6caf;
@@ -283,7 +299,6 @@ header input[type='text'], header input[type='password'], header input[type='che
 }
 
 footer {
- margin-top: 8rem;
  height: 8rem;
  color: white;
  background-color: black;

@@ -76,6 +76,21 @@ io.on( "connection", function( socket ){
     .then(u=>console.log(u))
   });
 
+  socket.on('compra',(datos)=>{
+    User.findById(datos.userId)
+      .then(user=>{
+        console.log(user)
+        let new_credits = Number(user.creditos) + Number(datos.c);
+        User.findByIdAndUpdate(user._id, {$set:{creditos:new_credits}}, {new:true})
+        .then(user=>{
+          socket.emit('updatecredits', user)
+        })
+        .catch(e=>console.log(e))
+      })
+  })
+
+
+
 });
 
 //session

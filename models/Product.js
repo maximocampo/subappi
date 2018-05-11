@@ -10,6 +10,10 @@ const productSchema = new Schema({
   image:[String],
   tags: [String],
   owner: Schema.Types.ObjectId,
+  comment:[{
+    type:Schema.Types.ObjectId,
+    ref: "Comentario"
+  }],
   lider:{
     type:Schema.Types.ObjectId,
     ref: "User"

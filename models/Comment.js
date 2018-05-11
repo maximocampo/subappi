@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const commenttSchema = new Schema({
-  username: String,
+const commentSchema = new Schema({
+  userid:{
+    type:Schema.Types.ObjectId,
+    ref: "User"
+  },
   body: String 
 },{
     timestamps: {
@@ -12,4 +15,4 @@ const commenttSchema = new Schema({
   });
 
 
-  module.exports  = mongoose.model('Comment', commentSchema);
+  module.exports  = mongoose.model('Comentario', commentSchema);

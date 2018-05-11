@@ -19,7 +19,7 @@
 						<li class="color"><a href="/">Inicio</a></li>
 						<li class="color"><a href="/profile">Perfil</a></li>
             <li class="color credito"><a href="#">$<span id='tuscreditos'>{{user.creditos}}</span></a></li>
-						<li class="color"><a href="#" class="btn btn-primary btn-menu white">Compra créditos</a></li>
+						<li class="color"><a href="/credits" class="btn btn-primary btn-menu white">Compra créditos</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -112,18 +112,18 @@
 				  	<div class="card-body">
 						
 				  		<ul class="nav nav-tabs" id="myTab" role="tablist">
-							<li class="nav-item">
+							{{!-- <li class="nav-item">
 							    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#leader-tab" role="tab" aria-controls="home" aria-selected="true">Historial</a>
-							</li>
+							</li> --}}
 							<li class="nav-item">
-							    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="profile" aria-selected="false">Producto</a>
+							    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="profile" aria-selected="false">Producto</a>
 							</li>
 							<li class="nav-item">
 							    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#subasta-info-tab" role="tab" aria-controls="profile" aria-selected="false">Subasta</a>
 							</li>
 						</ul>
 						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane fade show active" id="leader-tab" role="tabpanel" aria-labelledby="home-tab">
+							{{!-- <div class="tab-pane fade show active" id="leader-tab" role="tabpanel" aria-labelledby="home-tab">
 								<table class="table">
 									<thead>
 										<tr>
@@ -145,8 +145,8 @@
 										</tr>
 									</tbody>
 								</table>
-							</div>
-							<div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="profile-tab">
+							</div> --}}
+							<div class="tab-pane fade show active" id="product-info-tab" role="tabpanel" aria-labelledby="home-tab">
 								<div class="container">
 									<div class="row">
 										<h3>{{product.name}}</h3>
@@ -157,10 +157,10 @@
 							<div class="tab-pane fade" id="subasta-info-tab" role="tabpanel" aria-labelledby="profile-tab">
 								<table class="table">
 									<tbody>
-										<tr>
+										{{!-- <tr>
 											<td><strong>Máx.</strong> <a href="#" data-toggle="tooltip" data-placement="top" title="Es el tope máximo de pujas. Si un usuario llega a este punto se convierte inmediatamente en el vencedor de la subasta.">?</a></td>
 											<td>$3000.00</td>
-										</tr>
+										</tr> --}}
 										<tr>
 											<td><strong>Contador</strong> <a href="#" data-toggle="tooltip" data-placement="top" title="En el momento que un usuario hace una puja, el contador sube 10 segundos para darle oportunidad a otros usuarios de pujar.">?</a></td>
 											<td>0:00:10</td>
@@ -188,10 +188,11 @@
 				<div class="card comments">
 					<div class="card-body">
 						<h2>Comentarios</h2><br>
-						
-						<h4>johnnyphocker:</h4>
-						<p>¿Este producto es real?</p>
+						{{#each product.comment}}
+						<h4>{{this.userid.name}}:</h4>
+						<p>{{body}}</p>
 						<hr>
+						{{/each}}
 
 					</div>
 				</div>
@@ -203,10 +204,10 @@
 				<div class="card form-comments">
 					<div class="card-body">
 						<h2>¿Tienes alguna duda de este producto?</h2><br>
-						<form action="post" class="comments">
-							<label for="">johnnyphocker:</label>
-							<input type="text" class="form-control" placeholder=""><br>
-							<input type="submit" value="Comentar" class="btn btn-card">
+						<form method="post" action="/auction/{{product._id}}/comments/new" class="comments">
+							<label for="">{{product.lider.name}} {{product.lider.lastName}}:</label>
+							<input type="text" class="form-control" placeholder="" name='body'><br>
+							<input type="submit" value="Comentar" class="btn btn-card" >
 						</form>
 
 					</div>
@@ -259,10 +260,6 @@
 		$(document).ready(function() {
 			$('.heart i').click(function() {
 				$('.heart i').toggleClass('following');
-
-
-
-
 			});
 		});
 

@@ -8,7 +8,16 @@ const uploadCloud = require("../helpers/cloudinary");
 
 
 
+router.get('/credits', (req, res, next)=>{
+    res.render('../views/credits',req.user);
+})
 
+function isAuthenticated(req,res, next){
+    if(req.isAuthenticated()){
+        return res.redirect('/profile')
+    }
+    return next();
+}
 
 function isAuthenticated(req,res, next){
     if(req.isAuthenticated()){
@@ -26,11 +35,14 @@ function isNotAuth(req,res,next){
 
 function homeAuth(req,res,next){
     if(req.isAuthenticated()){
-        Product.find().then(product=>{
-            return res.render('auth/index-auth', {product})
+        Product.find().populate('lider').then(product=>{
+            return res.render('auth/index-auth', {
+                product,
+                user:req.user
+            })
         }) 
     }else{
-        Product.find().then(product=>{
+        Product.find().populate('lider').then(product=>{
             return res.render('index', {product})
         })
     }

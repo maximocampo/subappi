@@ -41,7 +41,8 @@ var timeinterval = setInterval(updateClock, 1000);
 }
 
 var deadline = new Date(time);
-initializeClock('clockdiv', deadline);
+let now = Date.now()
+
 
 
 
@@ -52,31 +53,7 @@ var socket = io.connect();
 
 
 
-document.getElementById("push").addEventListener("click", ()=>{
-if(
-  document.getElementsByClassName('days')[0].innerHTML === '0'&&
-  document.getElementsByClassName('hours')[0].innerHTML === '0' &&
-  document.getElementsByClassName('minutes')[0].innerHTML === '0' &&
-  document.getElementsByClassName('seconds')[0].innerHTML === '0' ||
-  Number(document.getElementById('tuscreditos').innerHTML) <  Number(document.getElementById('pujaValue').value)
-){
-    return
-  }else{
-    let productId = document.getElementById("product-id").value;
-    let price = document.getElementById('price').innerHTML;
-    let pujaValue = document.getElementById('pujaValue').value;
-    let newlider = document.getElementById('newlider').value;
-    let newlidername = document.getElementById('newlidername').value;
-    let newliderlastname = document.getElementById('newliderlastname').value;
-    document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
-    document.getElementById('tuscreditos').innerHTML = Number(document.getElementById('tuscreditos').innerHTML) - Number(document.getElementById('pujaValue').value)
-    document.getElementById('lider').innerHTML = newlidername + ' ' + newliderlastname
-    socket.emit('puja', {
-      productId,
-      pujaValue,
-      price,
-      newlider});
-  }});
+
 
 document.getElementById('heartBtn').addEventListener('click',function() {
 
@@ -96,13 +73,41 @@ alert('Ahora sigues este producto');
 socket.on('update', function(datos){
   document.getElementById('price').innerHTML = datos.p.currentPrice
   document.getElementById('lider').innerHTML = datos.user.name
-  console.log(datos.user)
   });
   
 
 
 
 
-
-
+  if(time > now){
+    initializeClock('clockdiv', deadline);
+    document.getElementById("push").addEventListener("click", ()=>{
+      if(
+        document.getElementsByClassName('days')[0].innerHTML === '0'&&
+        document.getElementsByClassName('hours')[0].innerHTML === '0' &&
+        document.getElementsByClassName('minutes')[0].innerHTML === '0' &&
+        document.getElementsByClassName('seconds')[0].innerHTML === '0' ||
+        Number(document.getElementById('tuscreditos').innerHTML) <  Number(document.getElementById('pujaValue').value)
+      ){
+          return
+        }else{
+          let productId = document.getElementById("product-id").value;
+          let price = document.getElementById('price').innerHTML;
+          let pujaValue = document.getElementById('pujaValue').value;
+          let newlider = document.getElementById('newlider').value;
+          let newlidername = document.getElementById('newlidername').value;
+          let newliderlastname = document.getElementById('newliderlastname').value;
+          document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
+          document.getElementById('tuscreditos').innerHTML = Number(document.getElementById('tuscreditos').innerHTML) - Number(document.getElementById('pujaValue').value)
+          document.getElementById('lider').innerHTML = newlidername + ' ' + newliderlastname
+          socket.emit('puja', {
+            productId,
+            pujaValue,
+            price,
+            newlider});
+        }});
+  }else{
+    document.getElementById('clockdiv').childNodes[1].innerHTML = 'OFERTA FINALIZADA'
+    document.getElementById("push").innerHTML = 'Esta subasta ha terminado'
+  }
 

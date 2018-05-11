@@ -75,8 +75,13 @@ for (let i = 0; i < clockdiv.length; i++) {
 
   let time = Number(clock.childNodes[1].value)
   var deadline = new Date(time);
+  let now = Date.now()
+  if(time > now){
+    initializeClock(clock, deadline);
+  }else{
+    clock.childNodes[3].innerHTML = 'OFERTA FINALIZADA'
+  }
 
-  initializeClock(clock, deadline);
   
 }
 

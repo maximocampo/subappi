@@ -84,7 +84,15 @@
 				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 productcard">
 				
 					<div class="card card-inicio">
-					  <img class="card-img-top" src={{image.[0]}}>
+					 
+					 
+					 {{#if this.image.[0]}}
+								  <img class="card-img-top" src="{{this.image.[0]}}" alt="Tu producto">
+									{{else }}
+									<img class="card-img-top" src="http://res.cloudinary.com/otnielitowsky/image/upload/v1525969636/foto-no-disponible.jpg" alt="Pon una foto de tu producto">
+									{{/if}}
+					 
+					 
 					  <div class="card-body">
 							<div class="clockdiv">
 											<input class="timeofprod" value="{{time}}" type="text" hidden>

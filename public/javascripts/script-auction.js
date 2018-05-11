@@ -73,6 +73,7 @@ alert('Ahora sigues este producto');
 socket.on('update', function(datos){
   document.getElementById('price').innerHTML = datos.p.currentPrice
   document.getElementById('lider').innerHTML = datos.user.name
+  document.getElementById('timeofprod').value = datos.p.time
   });
   
 
@@ -100,11 +101,13 @@ socket.on('update', function(datos){
           document.getElementById('price').innerHTML = parseInt(price) + parseInt(pujaValue);
           document.getElementById('tuscreditos').innerHTML = Number(document.getElementById('tuscreditos').innerHTML) - Number(document.getElementById('pujaValue').value)
           document.getElementById('lider').innerHTML = newlidername + ' ' + newliderlastname
+          document.getElementById('timeofprod').value = Number(document.getElementById('timeofprod').value) + 10000
           socket.emit('puja', {
             productId,
             pujaValue,
             price,
-            newlider});
+            newlider,
+            time});
         }});
   }else{
     document.getElementById('clockdiv').childNodes[1].innerHTML = 'OFERTA FINALIZADA'

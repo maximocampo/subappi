@@ -52,7 +52,9 @@ io.on( "connection", function( socket ){
   
   socket.on('puja', async function(datos){
     const newPrice = Number(datos.price) + Number(datos.pujaValue);
-    const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider}, {new:true});
+    const newtime = datos.time + 10000
+    const p = await Product.findByIdAndUpdate(datos.productId, {currentPrice:newPrice, lider:datos.newlider, time:newtime}, {new:true});
+
     User.findById(p.owner)
       .then(user=>{
         let new_credits = Number(user.creditos) + Number(datos.pujaValue);
